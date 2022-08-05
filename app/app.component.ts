@@ -12,20 +12,9 @@ import { Database } from 'src/assets/model/database';
 })
 export class AppComponent implements OnInit {
   title = 'templates'; 
-  //isfetching:boolean=false;
+  isfetching:boolean=false;
+  editmode:boolean=false;
  allEmployees:Database[]=[];
-  //gender = ['Male', 'Female']
-   // user={
-      //no:"",
-    //firstname: "",
-    //lastname:"",
-    //email: "",
-    //gender: "",
-    //contactno: "",
-    //state: "",
-   // city:"",
-    //role:"",
-    //exp:"",
   submitted=false;
 @ViewChild('userform') uf!:NgForm
   State=[
@@ -52,19 +41,6 @@ export class AppComponent implements OnInit {
   {}
   onSubmit(users:{no:string,firstname:string,lastname:string,email:string,contactno:string,city:string}){
     this.submitted=true;
-    //this.user.no=this.uf.value.no;
-    //this.user.firstname=this.uf.value.firstname;
-    //this.user.lastname=this.uf.value.lastname;
-    //this.user.email=this.uf.value.email;
-    //this.user.gender=this.uf.value.gender;
-    //this.user.contactno=this.uf.value.contactno;
-    //this.user.state=this.uf.value.state;
-    //this.user.city=this.uf.value.city;
-    //this.user.role=this.uf.value.role;
-    //this.user.exp=this.uf.value.exp;
-    //console.log(this.uf.value.no,this.uf.value.firstname,this.uf.value.lastname,this.uf.value.email,this.uf.value.gender,
-      //this.uf.value.contactno,this.uf.value.state,this.uf.value.city,this.uf.value.role,this.uf.value.exp)
-//this.uf.reset();
     console.log(users);
     //const header=new HttpHeaders({'MyHeader':'Employee Database'})
     this.http.post<{name:string}>('https://employee-database-21589-default-rtdb.firebaseio.com/users.json',users)
@@ -74,7 +50,7 @@ export class AppComponent implements OnInit {
   }
   private fetchemployee()
   {
-    //this.isfetching=true;
+    this.isfetching=true;
     this.http.get<{[key:string]:Database}>('https://employee-database-21589-default-rtdb.firebaseio.com/users.json')
     .pipe(map((res)=>{
       const employees=[];
@@ -87,14 +63,30 @@ return employees;
     }))    .subscribe((employees)=>{
       console.log(employees);
       this.allEmployees=employees;
-      //this.isfetching=false;
+      this.isfetching=false;
     });
   }
   ondelete(no:string){
-    this.http.delete('https://employee-database-21589-default-rtdb.firebaseio.com/users/'+no+'json')
+    this.http.delete('https://employee-database-21589-default-rtdb.firebaseio.com/users/'+no+'.json')
     .subscribe();
   }
   ondeleteall(){
     this.http.delete('https://employee-database-21589-default-rtdb.firebaseio.com/users.json')
     .subscribe();
-  }}
+  }
+onedit(no:string){
+  let currentemployee=this.allEmployees.find((p)=>{return p.no==no});
+  console.log(currentemployee);
+  //this.uf.setValue({
+    //firstname:currentemployee.firstname,
+    //lastname:currentemployee.firstname,
+    //email:currentemployee.email,
+    //gender:currentemployee.gender,
+    //contactno:currentemployee.contactno,
+    //state:currentemployee.state,
+    //city:currentemployee.city,
+    //role:currentemployee.role,
+    //exp:currentemployee.exp
+  //})
+this.editmode=true;
+}}
