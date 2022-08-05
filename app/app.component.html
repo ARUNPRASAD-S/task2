@@ -1,0 +1,104 @@
+<h3 class="title">Employee Database Form</h3><br><br>
+<div class="form"><form (ngSubmit)="onSubmit(userform.value)" #userform="ngForm">
+  <div class="row">
+    <div class="row col-sm-5">
+      <div class="form-group">
+        <label for="slno">Serial-No</label>
+        <input type="Number" id="no" name="serialno" ngModel class="form-control" required>
+      </div><br>
+      <div class="form-group">
+        <label for="firstname">First Name</label>
+        <input type="text" id="firstname" name="firstname" ngModel class="form-control" required>
+      </div><br>
+      <div class="form-group">
+        <label for="lastname">Last Name</label>
+        <input type="text" id="lastname" name="lastname" ngModel class="form-control" required>
+      </div><br>
+      <div class="form-group">
+        <label for="email">Email</label>
+        <input type="text" id="email" name="email" ngModel class="form-control" required email  
+        #email="ngModel">
+        <span class="help-block" *ngIf="!email.valid&&email.touched">Please Enter Valid Email</span>
+      </div><br><br>
+      <div class="form-group">
+        <br><label for="gender">Gender</label>&nbsp;&nbsp;&nbsp;
+        <input type="radio" value="male" name="gender" ngModel required>Male
+        <input type="radio" value="female" name="gender" ngModel required>Female
+      </div><br><br>
+      <div class="form-group">
+        <label for="contactno">Contact Number</label><br>
+        <input type="tel" id="contactno" name="contactno" pattern="[1-9]{3}-[0-9]{3}-[0-9]{4}" ngModel required>
+      </div>
+      </div>
+      <div class="row col-sm-2"></div>
+      <div class="row col-sm-5">
+        <div class="form-group">
+          <div class="from-group">
+            <label for="state">State</label>
+            <select id="state" name="state" [ngModel]="'Karnataka'" class="form-control" required>
+              <option *ngFor="let S of State">
+                {{S.state}}
+              </option>
+            </select>
+          </div><br>
+          <div class="form-group">
+            <label for="city">City</label>
+            <input type="text" name="city" ngModel class="form-control" required>
+          </div><br>
+          <div class="form-group">
+            <label for="role">Designation</label>&nbsp;
+            <select id="role" name="role" ngModel class="form-contol" required>
+              <option *ngFor="let D of Design">
+                {{D.designs}}
+              </option>
+            </select>
+          </div><br>
+          <div class="form-group">
+            <label for="exp">Experience</label>&nbsp;
+            <input type="number" name="exp" ngModel class="form-contol" required>
+          </div>
+        </div>
+      </div>
+  </div>
+<br>
+<h2><div class="form-group">
+  <button type="submit" class="btn btn-info" [disabled]="!userform.valid">Submit</button>
+</div></h2></form>
+<div *ngIf ="submitted">
+  <table>
+  <thead>
+    <tr>
+  <th class="tableHead">Serial-No</th>
+  <th class="tableHead">FirstName</th>
+  <th class="tableHead">LastName</th>
+  <th class="tableHead">Email</th>
+  <th class="tableHead">Gender</th>
+  <th class="tableHead">ContactNumber</th>
+  <th class="tableHead">State</th>
+  <th class="tableHead">City</th>
+  <th class="tableHead">Designation</th>
+  <th class="tableHead">Experience</th></tr>
+  </thead>
+   <tbody>
+    <tr *ngFor="let user of allEmployees;index as i">
+      <td>{{i+1}}</td>
+    <td>{{user.firstname}}</td>
+    <td>{{user.lastname}}</td>
+    <td>{{user.email}}</td>
+    <td>{{user.gender}}</td>
+    <td>{{user.contactno}}</td>
+    <td>{{user.state}}</td>
+    <td>{{user.city}}</td>
+    <td>{{user.role}}</td>
+    <td>{{user.exp}}</td></tr>
+    <!--<td><button class="btn-delete" (click)="ondelete(user.no)">Delete</button></td>-->
+   </tbody>
+  </table>
+  <div class="action-btn-container">
+    <button class="btn-fetch" type="submit" (click)="onemployeefetch()">Fetch Employee</button>&nbsp;&nbsp;
+    <button class="btn-clear" (click)="ondeleteall()">Clear</button>
+  </div>
+
+ 
+
+  
