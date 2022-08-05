@@ -39,4 +39,8 @@ th {
 }
 
 td {
-    text-align: center;}
+    text-align: center;
+}
+.box{
+    text-align: left;
+}
