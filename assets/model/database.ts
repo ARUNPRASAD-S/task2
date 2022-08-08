@@ -4,7 +4,7 @@ export class Database{
     email:string;
     contactno:string;
     city:string;
-    empid?:string;
+    id?:string;
     gender:string;
     role:string;
     exp:string;
