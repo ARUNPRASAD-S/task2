@@ -67,7 +67,7 @@ return employees;
     });
   }
   ondelete(no:string){
-    this.http.delete('https://employee-database-21589-default-rtdb.firebaseio.com/users/'+no+'.json')
+    this.http.delete('https://employee-database-21589-default-rtdb.firebaseio.com/users/'+id+'.json')
     .subscribe();
   }
   ondeleteall(){
