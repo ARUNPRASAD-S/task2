@@ -5,9 +5,14 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { FormsModule } from '@angular/forms';
 import {HttpClientModule} from '@angular/common/http';
+import { FirebaseService } from './services/firebase.service';
+import { DataSheetComponent } from './data-sheet/data-sheet.component';
+import { FirstFormComponent } from './first-form/first-form.component';
 @NgModule({
   declarations: [
     AppComponent,
+    DataSheetComponent,
+    FirstFormComponent
   ],
   imports: [
     BrowserModule,
@@ -15,7 +20,7 @@ import {HttpClientModule} from '@angular/common/http';
     FormsModule,
     HttpClientModule,
   ],
-  providers: [],
+  providers: [FirebaseService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
