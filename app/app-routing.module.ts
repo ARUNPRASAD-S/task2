@@ -6,14 +6,14 @@ import { FirstFormComponent } from './first-form/first-form.component';
 
 
 const routes: Routes = [
-  {path:"appForm",
+  {path:"app",
   component:AppComponent},
   {path:"FirstForm",
  component:FirstFormComponent},
  {path:"FirstForm/DataSheet",
  component: DataSheetComponent},
  {
-  path:"",redirectTo:"login/Options",pathMatch:'full'
+  path:"",redirectTo:"FirstForm/DataSheet",pathMatch:'full'
 }
 
 ]
