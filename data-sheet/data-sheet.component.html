@@ -1,0 +1,42 @@
+<h1><table>
+    <thead>
+    <tr>
+    <th class="tableHead">Serial Number:</th>
+    <th class="tableHead">First Name</th>
+    <th class="tableHead">Last Name</th>
+    <th class="tableHead">Email id</th>
+    <th class="tableHead">Gender</th>
+    <th class="tableHead">Contact Number</th>
+    <th class="tableHead">State</th>
+    <th class="tableHead">City</th>
+    <th class="tableHead">Designation</th>
+    <th class="tableHead">Experience</th></tr>
+    <tr *ngIf="allEmployees.length<1 && !isfetching">
+      <td colspan="10">No Record Found!!!</td>
+    </tr>
+    <tr *ngIf="isfetching">
+      <td colspan="10">Loading...</td>
+    </tr>
+    </thead>
+     <tbody>
+      <tr *ngFor="let user of allEmployees;index as i">
+        <td>{{i+1}}</td>
+      <td>{{user.firstname}}</td>
+      <td>{{user.lastname}}</td>
+      <td>{{user.email}}</td>
+      <td>{{user.gender}}</td>
+      <td>{{user.contactno}}</td>
+      <td>{{user.state}}</td>
+      <td>{{user.city}}</td>
+      <td>{{user.role}}</td>
+      <td>{{user.exp}}</td>
+      <td><button class="btn-delete" (click)="ondelete(user.id)">Delete</button></td>
+      <td><button class="btn-edit" setValue="Employee" (click)="onedit(user.id)" routerLink="/FirstForm">Edit</button></td></tr>
+     </tbody>
+    </table>
+    <div class="action-btn-container">
+      <button class="btn-fetch" type="submit" (click)="onemployeefetch()">Fetch Employee</button>&nbsp;&nbsp;
+      <button class="btn-clear" (click)="ondeleteall()">Clear All</button>&nbsp;&nbsp;
+      <button class="btn-create" routerLink="/FirstForm" >Create</button>
+    </div></h1>
+    <div *ngIf ="submitted">

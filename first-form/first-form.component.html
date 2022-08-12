@@ -1,0 +1,69 @@
+<h1 class="title">Employees Database Form</h1><br><br>
+<div class="box">
+  <div class="form"><form (ngSubmit)="onSubmit(userform.value)" #userform="ngForm">
+    <div class="row">
+      <div class="row col-sm-5">
+        <div class="form-group">
+          <label for="slno">Serial Number:</label>
+          <input type="Number" id="no" name="serialno" ngModel class="form-control" required>
+        </div><br>
+        <div class="form-group">
+          <br><label for="firstname">First name:</label>
+          <input type="text" id="firstname" name="firstname" ngModel class="form-control" required>
+        </div><br><br>
+        <div class="form-group">
+          <br><label for="lastname">Last name:</label>
+          <input type="text" id="lastname" name="lastname" ngModel class="form-control" required>
+        </div><br>
+        <div class="form-group">
+          <br><label for="email">Email:</label>
+          <input type="text" id="email" name="email" ngModel class="form-control" required email  
+          #email="ngModel">
+          <span class="help-block" *ngIf="!email.valid&&email.touched">Please enter a valid Email.id</span>
+        </div><br><br>
+        <div class="form-group">
+          <br><label for="gender">Gender:</label>&nbsp;&nbsp;&nbsp;
+          <input type="radio" value="male" name="gender" ngModel required> : Male
+          <input type="radio" value="female" name="gender" ngModel required> : Female
+        </div><br><br>
+        <div class="form-group">
+          <br><label for="contactno">Contact number:</label><br>
+          <input type="number" id="contactno" name="contactno"  ngModel required>
+        </div>
+        </div>
+        <div class="row col-sm-2"></div>
+        <div class="row col-sm-5">
+          <div class="form-group">
+            <div class="from-group">
+              <br><label for="state">State:</label>
+              <select id="state" name="state" [ngModel]="'Karnataka'" class="form-control" required>
+                <option *ngFor="let S of State">
+                  {{S.state}}
+                </option>
+              </select>
+            </div><br>
+            <div class="form-group">
+              <label for="city">City:</label>
+              <input type="text" name="city" ngModel class="form-control" required>
+            </div><br>
+            <div class="form-group">
+              <label for="role">Designation:</label>&nbsp;<br><br>
+              <select id="role" name="role" ngModel class="form-contol" required>
+                <option *ngFor="let D of Design">
+                  {{D.designs}}
+                </option>
+              </select>
+            </div><br>
+            <div class="form-group">
+              <label for="exp">Experience:</label>&nbsp;<br>
+              <input type="number" name="exp" ngModel class="form-contol" required>
+            </div>
+          </div>
+        </div>
+    </div>
+  <br>
+  <h2><div class="form-group">
+    <button type="submit" value="{{editmode?'Update':'Add'}}"class="btn btn-dark" [disabled]="!userform.valid">Submit</button><br>
+    <h6><button class="listpage" routerLink="DataSheet" routerLinkActive="Activate">listpage</button></h6>
+  </div></h2></form></div>
+
