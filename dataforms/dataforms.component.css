@@ -1,0 +1,37 @@
+thead{
+    background-color: #3f87a6;
+    color: #fff;
+}
+tbody {
+    background-color: #e4f0f5;
+}
+table {
+    border: 2px solid rgb(200, 200, 200);
+    letter-spacing: 1px;
+    font-family: sans-serif;
+    font-size: .8rem;
+}
+td,
+th {
+    border: 1px solid rgb(190, 190, 190);
+    padding: 5px 10px;
+    text-align: center;
+}
+td {
+    text-align: center;
+}
+.box{
+    text-align: center;
+}
+.tab{
+    margin-left: 50px;
+}
+.btn-delete,.btn-edit,.btn-fetch,.btn-clear{
+    background-color: skyblue;
+}
+table{
+    margin-left: 50px;
+}
+.fetch{
+    margin-left: 50px;
+}
