@@ -1,5 +1,11 @@
+import { HttpClient, HttpHeaders} from '@angular/common/http';
 import { Component, OnInit, ViewChild } from '@angular/core';
+import { NgForm } from '@angular/forms';
+import { map } from 'rxjs/operators';
+import { Database } from './data-sheet/database';
 import { Route, Router, } from '@angular/router';
+
+
 
 @Component({
   selector: 'app-root',
@@ -7,7 +13,7 @@ import { Route, Router, } from '@angular/router';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent implements OnInit {
-  title = 'Employee-Form';
+  title = 'Only-Brand-app';
   constructor(private router:Router){
     this.router.navigate(['/FirstForm']);
   

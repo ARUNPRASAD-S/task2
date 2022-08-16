@@ -1,17 +1,16 @@
-import { Component, OnInit,ViewChild } from '@angular/core';
-import { HttpClient, HttpHeaders} from '@angular/common/http';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { NgForm } from '@angular/forms';
-import { map } from 'rxjs/operators';
 import { Database } from '../data-sheet/database';
-
+import { HttpClient } from '@angular/common/http';
+import { HttpClientModule } from '@angular/common/http';
+import { map } from 'rxjs';
 
 @Component({
-  selector: 'app-first-form',
-  templateUrl: './first-form.component.html',
-  styleUrls: ['./first-form.component.css']
+  selector: 'app-updateform',
+  templateUrl: './updateform.component.html',
+  styleUrls: ['./updateform.component.css']
 })
-export class FirstFormComponent implements OnInit {
-
+export class UpdateformComponent implements OnInit {
   title = 'Employee-Form'; 
   isfetching:boolean=false;
   editmode:boolean=false;
@@ -45,7 +44,6 @@ export class FirstFormComponent implements OnInit {
   onSubmit(users:{no:string,firstname:string,lastname:string,email:string,contactno:string,city:string}){
     this.submitted=true;
     console.log(users);
-    const header=new HttpHeaders({'MyHeader':'Employee Database'})
     this.http.post<{name:string}>('https://employeedata-5cf2c-default-rtdb.firebaseio.com/users.json',users)
     .subscribe((res)=>{
       console.log(res);
@@ -77,19 +75,23 @@ return employees;
     this.http.delete('https://employeedata-5cf2c-default-rtdb.firebaseio.com/users.json')
     .subscribe();
   }
-onedit(id:string){
-  let currentemployee=this.allEmployees.find((p)=>{return p.number==id});
+  onedit(id:string){
+    
+    let currentemployee=this.allEmployees.find((p)=>{return p.id==id});
   console.log(currentemployee);
   this.uf.setValue({
-    // firstname:currentemployee.firstname,
-    // lastname:currentemployee.firstname,
-    // email:currentemployee.email,
-    // gender:currentemployee.gender,
-    // contactno:currentemployee.contactno,
-    // state:currentemployee.state,
-    // city:currentemployee.city,
-    // role:currentemployee.role,
-    // exp:currentemployee.exp
+    firstname:currentemployee?.firstname,
+    lastname:currentemployee?.lastname,
+    email:currentemployee?.email,
+    gender:currentemployee?.gender,
+    contactno:currentemployee?.contactno,
+    state:currentemployee?.state,
+    city:currentemployee?.city,
+    id:currentemployee?.id,
+    role:currentemployee?.role,
+    exp:currentemployee?.exp,
+
   })
 this.editmode=true;
 }}
+

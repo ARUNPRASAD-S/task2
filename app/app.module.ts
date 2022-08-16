@@ -8,11 +8,13 @@ import {HttpClientModule} from '@angular/common/http';
 import { FirebaseService } from './services/firebase.service';
 import { DataSheetComponent } from './data-sheet/data-sheet.component';
 import { FirstFormComponent } from './first-form/first-form.component';
+import { UpdateformComponent } from './updateform/updateform.component';
 @NgModule({
   declarations: [
     AppComponent,
     DataSheetComponent,
-    FirstFormComponent
+    FirstFormComponent,
+    UpdateformComponent
   ],
   imports: [
     BrowserModule,

@@ -3,6 +3,7 @@ import { RouterModule, Routes } from '@angular/router';
 import { DataSheetComponent } from './data-sheet/data-sheet.component';
 import { AppComponent } from './app.component';
 import { FirstFormComponent } from './first-form/first-form.component';
+import { UpdateformComponent } from './updateform/updateform.component';
 
 
 const routes: Routes = [
@@ -12,10 +13,8 @@ const routes: Routes = [
  component:FirstFormComponent},
  {path:"FirstForm/DataSheet",
  component: DataSheetComponent},
- {
-  path:"",redirectTo:"FirstForm/DataSheet",pathMatch:'full'
-}
-
+ {path:"Updateform",
+  component:UpdateformComponent}
 ]
 
 @NgModule({
