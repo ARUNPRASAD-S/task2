@@ -62,19 +62,19 @@ return employees;
   }
   onedit(id:string){
     
-    let currentemployee=this.allEmployees.find((p)=>{return p.id==id});
-  console.log(currentemployee);
+    let employee=this.allEmployees.find((p)=>{return id});
+  console.log(employee);
   this.uf.setValue({
-    firstname:currentemployee?.firstname,
-    lastname:currentemployee?.lastname,
-    email:currentemployee?.email,
-    gender:currentemployee?.gender,
-    contactno:currentemployee?.contactno,
-    state:currentemployee?.state,
-    city:currentemployee?.city,
-    id:currentemployee?.id,
-    role:currentemployee?.role,
-    exp:currentemployee?.exp,
+    // firstname:employee?.firstname,
+    // lastname:employee?.lastname,
+    // email:employee?.email,
+    // gender:employee?.gender,
+    // contactno:employee?.contactno,
+    // state:employee?.state,
+    // city:employee?.city,
+    // id:employee?.id,
+    // role:employee?.role,
+    // exp:employee?.exp,
 
   })
 this.editmode=true;

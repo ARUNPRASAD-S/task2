@@ -1,4 +1,4 @@
-import { NgModule } from '@angular/core';
+import { Component, NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { DataSheetComponent } from './data-sheet/data-sheet.component';
 import { AppComponent } from './app.component';
@@ -14,8 +14,11 @@ const routes: Routes = [
  {path:"FirstForm/DataSheet",
  component: DataSheetComponent},
  {path:"Updateform",
-  component:UpdateformComponent}
-]
+  component:UpdateformComponent},
+  {
+    path:"",redirectTo:"FirstForm/DataSheet/Updateform",pathMatch:'full'
+  }
+];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],

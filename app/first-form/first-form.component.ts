@@ -42,7 +42,7 @@ export class FirstFormComponent implements OnInit {
   }
   constructor(private http:HttpClient)
   {}
-  onSubmit(users:{no:string,firstname:string,lastname:string,email:string,contactno:string,city:string}){
+  submit(users:{no:string,firstname:string,lastname:string,email:string,contactno:string,city:string}){
     this.submitted=true;
     console.log(users);
     const header=new HttpHeaders({'MyHeader':'Employee Database'})

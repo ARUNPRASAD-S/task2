@@ -41,7 +41,7 @@ export class UpdateformComponent implements OnInit {
   }
   constructor(private http:HttpClient)
   {}
-  onSubmit(users:{no:string,firstname:string,lastname:string,email:string,contactno:string,city:string}){
+  submit(users:{no:string,firstname:string,lastname:string,email:string,contactno:string,city:string}){
     this.submitted=true;
     console.log(users);
     this.http.post<{name:string}>('https://employeedata-5cf2c-default-rtdb.firebaseio.com/users.json',users)

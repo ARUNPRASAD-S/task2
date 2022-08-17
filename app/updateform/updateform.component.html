@@ -1,6 +1,6 @@
 <h1 class="title">Employees Database Form</h1><br><br>
 <div class="box">
-  <div class="form"><form (ngSubmit)="onSubmit(userform.value)" #userform="ngForm">
+  <div class="form"><form (ngSubmit)="submit(userform.value)" #userform="ngForm">
     <div class="row">
       <div class="row col-sm-5">
         <div class="form-group">
@@ -63,7 +63,7 @@
     </div>
   <br>
   <h2><div class="form-group">
-    <button type="submit" value="{{editmode?'Update':'Add'}}"class="btn btn-dark" [disabled]="!userform.valid">Update</button><br>
-    <h6><button class="listpage" routerLink="DataSheet" routerLinkActive="Activate">listpage</button></h6>
+    <button type="button" class="listpage btn btn-success btn btn-info"  [disabled]="!userform.valid" routerLink="DataSheet" routerLinkActive="Activate" (click)="submit(userform.value)">Update</button>
+    <h6><nav><button class="listpage" routerLink="/DataSheet" routerLinkActive="Activate">listpage</button></nav></h6>
   </div></h2></form></div>
 

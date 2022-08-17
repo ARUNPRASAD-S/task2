@@ -1,11 +1,11 @@
 <h1 class="title">Employees Database Form</h1><br><br>
 <div class="box">
-  <div class="form"><form (ngSubmit)="onSubmit(userform.value)" #userform="ngForm">
+  <div class="form"><form (ngSubmit)="submit(userform.value)" #userform="ngForm">
     <div class="row">
       <div class="row col-sm-5">
         <div class="form-group">
           <label for="slno">Serial Number:</label>
-          <input type="Number" id="no" name="serialno" ngModel class="form-control" required>
+          <input type="Number" id="no" name="serialno" ngModel class="form-control" >
         </div><br>
         <div class="form-group">
           <br><label for="firstname">First name:</label>
@@ -28,7 +28,7 @@
         </div><br><br>
         <div class="form-group">
           <br><label for="contactno">Contact number:</label><br>
-          <input type="number" id="contactno" name="contactno"  ngModel required>
+          <input type="number" id="contactno" name="contactno" pattern="[1-9]{10}"  ngModel required>
         </div>
         </div>
         <div class="row col-sm-2"></div>
@@ -63,7 +63,5 @@
     </div>
   <br>
   <h2><div class="form-group">
-    <button type="submit" value="{{editmode?'Update':'Add'}}"class="btn btn-dark" [disabled]="!userform.valid">Submit</button><br>
-    <h6><button class="listpage" routerLink="DataSheet" routerLinkActive="Activate">listpage</button></h6>
+    <button type="button" class="btn btn-dark" [disabled]="!userform.valid" (click)="submit(userform.value)" routerLink="DataSheet" routerLinkActive="Activate" >Submit</button><br>
   </div></h2></form></div>
-
